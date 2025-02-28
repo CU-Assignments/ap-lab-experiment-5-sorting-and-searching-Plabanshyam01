@@ -1,0 +1,23 @@
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        int low = 0, mid = 0, high = nums.size() - 1;
+        
+        // Process the array with three pointers
+        while (mid <= high) {
+            if (nums[mid] == 0) {
+                // Swap 0 to the left side
+                swap(nums[low], nums[mid]);
+                low++;
+                mid++;
+            } else if (nums[mid] == 1) {
+                // Move forward if we find a 1
+                mid++;
+            } else {
+                // Swap 2 to the right side
+                swap(nums[mid], nums[high]);
+                high--;
+            }
+        }
+    }
+};
